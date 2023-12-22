@@ -1,26 +1,29 @@
 .roadmap {
+    position: relative;
     padding: 10px 20px;
     display: flex;
 }
 
-.aside {
+.roadmap .aside {
     height: calc(100vh - 20px);
-    position: relative;
+    position: fixed;
 }
 
-.aside::before {
+.roadmap .aside::before {
     content: "";
     position: absolute;
     width: 3px;
-    --top: 20px;
+    /*--top: 20px;
     height: calc(100% - var(--top) / 2);
+    top: var(--top);*/
+    height: 100vh;
+    top: -10px;
     left: 50%;
-    top: var(--top);
     transform: translate(-50%);
     background: var(--purpal);
 }
 
-div main {
+.roadmap main {
     flex-grow: 1;
     padding-left: 25px;
 }
@@ -49,7 +52,7 @@ div main {
 }
 
 .roadmap .roadmap__desc {
-
+    width: min(100%, 900px);
 }
 
 /*SECTIONS ------------------------------------------------------*/
@@ -57,6 +60,7 @@ div main {
     background: var(--bg-color-900);
     padding: 7px;
     border-radius: 7px;
+    width: fit-content;
     /*box-shadow: 0 0 5px 0 hsl(0 ,0% ,0%);*/
 }
 
@@ -85,11 +89,32 @@ div main {
     content: "";
     position: absolute;
     border-radius: 50%;
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     background: var(--purpal);
-    left: -29px;
-    top: -2px;
+    animation: grow .7s alternate-reverse infinite;
+    left: -28px;
+    top: -1px;
+}
+
+@keyframes grow {
+    from {
+        width: 4px;
+        height: 4px;
+        left: -26px;
+        top: 1px;
+        opacity: .3;
+    }
+    97% {
+        opacity: 0.7;
+    }
+    to {
+        width: 10px;
+        height: 10px;
+        left: -29px;
+        top: -2px;
+        opacity: 0.8;
+    }
 }
 
 .roadmap .roadmap-section__icon.active i {

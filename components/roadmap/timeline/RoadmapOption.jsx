@@ -10,8 +10,6 @@ export default function RoadmapOption() {
             </p>
             <div className="actions">
                 <RoadmapAction clasName="done"/>
-                <RoadmapAction clasName="current"/>
-                <RoadmapAction/>
             </div>
         </div>
     </>

@@ -21,8 +21,6 @@ export default function RoadmapPage({params: {roadmapId}}) {
                 <RoadmapSection/>
                 <RoadmapSection/>
                 <RoadmapSection/>
-                <RoadmapSection/>
-                <RoadmapSection/>
             </main>
         </div>
     </>
