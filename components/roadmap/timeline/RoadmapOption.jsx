@@ -1,15 +1,12 @@
 import RoadmapAction from "@/components/roadmap/timeline/RoadmapAction";
 
-export default function RoadmapOption() {
+export default function RoadmapOption({data}) {
     return <>
         <div className="option-card">
-            <h3 className="option-card__title">Option 1</h3>
-            <p className="option-card__desc">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ex odio, tempor sit amet
-                augue id, malesuada ultricies leo.
-            </p>
+            <h3 className="option-card__title">{data.title}</h3>
+            <p className="option-card__desc">{data.description}</p>
             <div className="actions">
-                <RoadmapAction clasName="done"/>
+                <RoadmapAction data={data.start}/>
             </div>
         </div>
     </>
