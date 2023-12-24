@@ -19,8 +19,13 @@ class Fetch {
         };
 
         if (body !== null) requestOptions.body = JSON.stringify(body);
+        const res = await fetch(baseUrl + url, requestOptions);
 
-        return await fetch(baseUrl + url, requestOptions);
+        if (!res.ok) {
+            throw new Error('Failed to fetch data')
+        }
+
+        return await res.json()
     };
 
     GET = async (url = "", body = null) => this.doFetch(this.baseAPI + url, "GET", body)

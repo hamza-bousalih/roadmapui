@@ -1,5 +1,3 @@
-"use client"
-
 import {RoadmapIcon} from "@/components/icons"
 import "@/styles/roadmap/roadmap-details.css"
 import RoadmapSection from "@/components/roadmap/timeline/RoadmapSection";
@@ -7,12 +5,13 @@ import Service from "@/services"
 import RoadmapData from "@/services/data";
 
 export default async function RoadmapPage({params: {roadmapId}}) {
-    let res = await Service.Roadmap.create(RoadmapData);
-    let roadmap = await res.json()
-    console.log(roadmap)
+    let roadmap;
+    await Service.Roadmap.findById(roadmapId)
+        .then(data => roadmap = data)
+        .catch(err => console.log(err));
 
     return <>
-        {/*<div className="roadmap">
+        {roadmap && <div className="roadmap">
             <div className="aside"></div>
             <main>
                 <section className="roadmap__detail">
@@ -23,6 +22,6 @@ export default async function RoadmapPage({params: {roadmapId}}) {
 
                 <RoadmapSection data={roadmap.start}/>
             </main>
-        </div>*/}
+        </div>}
     </>
 }
