@@ -60,7 +60,7 @@
     background: var(--bg-color-900);
     padding: 7px;
     border-radius: 7px;
-    width: fit-content;
+    /*width: fit-content;*/
     /*box-shadow: 0 0 5px 0 hsl(0 ,0% ,0%);*/
 }
 
@@ -128,16 +128,18 @@
 /*OPTIONS ------------------------------------------------------*/
 .roadmap .options {
     position: relative;
-    width: fit-content;
+    /*width: fit-content;*/
     display: grid;
     gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 
 .roadmap .option-card {
     background: var(--bg-color-400);
     padding: 5px 10px;
     border-radius: 5px;
+    /*height: fit-content;*/
+    /*box-shadow: 0 0 7px var(--bg-color-900);*/
     /*width: min(300px, 100%);*/
     /*box-shadow: 0 0 5px 0 var(--bg-color-700);*/
 }

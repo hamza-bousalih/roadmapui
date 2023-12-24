@@ -1,27 +1,18 @@
 "use client"
 
-import {useState, useEffect} from "react"
 import {RoadmapIcon} from "@/components/icons"
 import "@/styles/roadmap/roadmap-details.css"
 import RoadmapSection from "@/components/roadmap/timeline/RoadmapSection";
+import Service from "@/services"
 import RoadmapData from "@/services/data";
-import AxiosConfig from "@/services/AxiosConfig";
 
-export default function RoadmapPage({params: {roadmapId}}) {
-    const [roadmap, setRoadmap] = useState(RoadmapData)
-
-    /*useEffect(() => {
-        const fetch = async () => await AxiosConfig.get(`/roadmap/${roadmapId}`)
-        fetch()
-            .then(data => {
-                console.log(data)
-                setRoadmap(data)
-            })
-            .catch(e => console.error(e))
-    }, []);*/
+export default async function RoadmapPage({params: {roadmapId}}) {
+    let res = await Service.Roadmap.create(RoadmapData);
+    let roadmap = await res.json()
+    console.log(roadmap)
 
     return <>
-        <div className="roadmap">
+        {/*<div className="roadmap">
             <div className="aside"></div>
             <main>
                 <section className="roadmap__detail">
@@ -32,6 +23,6 @@ export default function RoadmapPage({params: {roadmapId}}) {
 
                 <RoadmapSection data={roadmap.start}/>
             </main>
-        </div>
+        </div>*/}
     </>
 }

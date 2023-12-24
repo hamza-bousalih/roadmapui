@@ -7,10 +7,7 @@ export default function RoadmapSection({data}) {
                 {/*<CheckIcon/>*/}
             </div>
             <div className="options">
-                <RoadmapOption data={data?.options[0]}/>
-                <RoadmapOption data={data?.options[0]}/>
-                <RoadmapOption data={data?.options[0]}/>
-                {/*{data?.options.map(op => <RoadmapOption key={data.options.indexOf(op)} data={op}/>)}*/}
+                {data?.options.map(op => <RoadmapOption key={data.options.indexOf(op)} data={op}/>)}
             </div>
         </section>
         {data?.next && <RoadmapSection data={data.next}/>}
