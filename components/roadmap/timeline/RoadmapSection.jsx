@@ -3,7 +3,8 @@ import RoadmapOption from "@/components/roadmap/timeline/RoadmapOption";
 export default function RoadmapSection({data}) {
     return <>
         <section className="roadmap-section">
-            <div className="roadmap-section__icon" {/*current*/}>
+            <div className="roadmap-section__icon">
+                {/*current*/}
                 {/*<CheckIcon/>*/}
             </div>
             <div className="options">

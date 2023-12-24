@@ -78,7 +78,7 @@
     border: 3px solid var(--purpal);
     border-radius: 50%;
     left: -37px;
-    top: -10px;
+    top: -13px;
 }
 
 .roadmap .roadmap-section__icon.active::before {

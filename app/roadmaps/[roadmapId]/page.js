@@ -1,14 +1,35 @@
+"use client"
+
 import {RoadmapIcon} from "@/components/icons"
 import "@/styles/roadmap/roadmap-details.css"
 import RoadmapSection from "@/components/roadmap/timeline/RoadmapSection";
 import Service from "@/services"
-import RoadmapData from "@/services/data";
+import {useEffect, useState} from "react";
 
-export default async function RoadmapPage({params: {roadmapId}}) {
-    let roadmap;
+export default /*async*/ function RoadmapPage({params: {roadmapId}}) {
+    /*let roadmap;
     await Service.Roadmap.findById(roadmapId)
-        .then(data => roadmap = data)
-        .catch(err => console.log(err));
+        .then(data => {
+            roadmap = data
+            console.log(roadmap.start.next)
+        })
+        .catch(err => console.log(err));*/
+
+    const [roadmap, setRoadmap] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const data = await Service.Roadmap.findById(roadmapId);
+                setRoadmap(data);
+                console.log('Fetched Roadmap:', data);
+            } catch (error) {
+                console.error('Error fetching roadmap:', error);
+            }
+        };
+
+        fetchData().then(err => console.log(err));
+    }, [roadmapId]);
 
     return <>
         {roadmap && <div className="roadmap">
