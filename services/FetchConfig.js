@@ -17,26 +17,21 @@ class Fetch {
         "Content-Type": "application/json",
     };
 
-    doFetch = async ({url, method, body = null}) => {
-        const api = (this.baseUrl + this.baseAPI + (url !== "" ? "/" + url : ""))
-            .replace("//", "")
-        console.log(api+ "\n--------------------------------------------------")
+    doFetch = async ({ url, method, body = null }) => {
+        const apiUrl = `${this.baseUrl}${this.baseAPI}${url !== "" ? "/" + url : ""}`;
+        console.log(apiUrl + "\n--------------------------------------------------");
 
-        const requestOptions = {
-            headers: this.headers,
-            method: method
-        };
+        const requestOptions = { headers: this.headers, method: method };
 
-        if (body !== null) requestOptions.body = JSON.stringify(body);
-        const res = await fetch(api, requestOptions)
-            .catch(err => console.error(err));
+        if (body) requestOptions.body = JSON.stringify(body);
 
-        if (!res.ok) {
-            throw new Error(res.status.toString())
-        }
+        const res = await fetch(apiUrl, requestOptions).catch(err => console.error(err));
 
-        return await res.json()
+        if (!res.ok) throw new Error(res.status.toString());
+
+        return await res.json();
     };
+
 
     GET = async (url = "", body = null) =>
         this.doFetch({

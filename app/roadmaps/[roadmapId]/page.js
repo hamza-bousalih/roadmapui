@@ -5,6 +5,7 @@ import "@/styles/roadmap/roadmap-details.css"
 import RoadmapSection from "@/components/roadmap/timeline/RoadmapSection";
 import Service from "@/services"
 import {useEffect, useState} from "react";
+import RoadmapData from "@/services/data";
 
 export default /*async*/ function RoadmapPage({params: {roadmapId}}) {
     /*let roadmap;
@@ -15,13 +16,15 @@ export default /*async*/ function RoadmapPage({params: {roadmapId}}) {
         })
         .catch(err => console.log(err));*/
 
-    const [roadmap, setRoadmap] = useState(null);
+    const [roadmap, setRoadmap] = useState(RoadmapData);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const data = await Service.Roadmap.findById(roadmapId);
                 setRoadmap(data);
+                // const res = await fetch("http://localhost:5265/api/roadmap/4")
+                // const data = await  res.json()
                 console.log('Fetched Roadmap:', data);
             } catch (error) {
                 console.error('Error fetching roadmap:', error);
