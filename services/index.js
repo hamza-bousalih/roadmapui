@@ -1,7 +1,7 @@
 import RoadmapService from "@/services/roadmapService"
 
 const Service = {
-    Roadmap: new RoadmapService(),
+    RoadmapService,
 }
 
 export default Service;

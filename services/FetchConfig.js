@@ -19,7 +19,7 @@ class Fetch {
 
     doFetch = async ({ url, method, body = null }) => {
         const apiUrl = `${this.baseUrl}${this.baseAPI}${url !== "" ? "/" + url : ""}`;
-        console.log(apiUrl + "\n--------------------------------------------------");
+        // console.log(apiUrl + "\n--------------------------------------------------");
 
         const requestOptions = { headers: this.headers, method: method };
 

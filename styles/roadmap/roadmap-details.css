@@ -1,201 +1,222 @@
+/*ROADMAPS ------------------------------------------------------*/
 .roadmap {
     position: relative;
     padding: 10px 20px;
     display: flex;
-}
+    width: min(1200px, 100%);
+    margin-left: auto;
+    margin-right: auto;
 
-.roadmap .aside {
-    height: calc(100vh - 20px);
-    position: fixed;
-}
+    & .aside {
+        height: calc(100vh - 20px);
+        position: fixed;
 
-.roadmap .aside::before {
-    content: "";
-    position: absolute;
-    width: 3px;
-    /*--top: 20px;
-    height: calc(100% - var(--top) / 2);
-    top: var(--top);*/
-    height: 100vh;
-    top: -10px;
-    left: 50%;
-    transform: translate(-50%);
-    background: var(--purpal);
-}
+        &::before {
+            content: "";
+            position: absolute;
+            width: 3px;
+            height: 100vh;
+            top: -10px;
+            left: 50%;
+            transform: translate(-50%);
+            background: var(--purpal);
+        }
+    }
 
-.roadmap main {
-    flex-grow: 1;
-    padding-left: 25px;
-}
+    & main {
+        flex-grow: 1;
+        padding-left: 25px;
+    }
 
-/*ROADMAPS ------------------------------------------------------*/
-.roadmap section {
-    position: relative;
-    margin-bottom: 25px;
-}
+    & section {
+        position: relative;
+        margin-bottom: 25px;
 
-.roadmap .roadmap__detail {
-    margin-bottom: 30px;
-}
+        &.roadmap__detail {
+            margin-bottom: 30px;
 
-.roadmap .roadmap__icon {
-    position: absolute;
-    left: -37px;
-    color: var(--purpal);
-    font-size: 25px;
-}
+            & .roadmap__icon {
+                position: absolute;
+                left: -37px;
+                color: var(--purpal);
+                font-size: 25px;
+            }
 
-.roadmap .roadmap__title {
-    color: var(--purpal);
-    margin-bottom: 4px;
-    font-weight: 600;
-}
+            & .roadmap__title {
+                color: var(--purpal);
+                margin-bottom: 4px;
+                font-weight: 600;
+            }
 
-.roadmap .roadmap__desc {
-    width: min(100%, 900px);
-}
+            & .roadmap__desc {
+                width: min(100%, 900px);
+            }
+        }
 
-/*SECTIONS ------------------------------------------------------*/
-.roadmap .roadmap-section {
-    background: var(--bg-color-900);
-    padding: 7px;
-    border-radius: 7px;
-    /*width: fit-content;*/
-    /*box-shadow: 0 0 5px 0 hsl(0 ,0% ,0%);*/
-}
+        /*SECTIONS ------------------------------------------------------*/
+        &.roadmap-section {
+            padding: 7px;
 
-.roadmap .roadmap-section__icon {
-    position: relative;
-    left: -6px;
-}
+            & .roadmap-section__icon {
+                position: relative;
+                left: -6px;
 
-.roadmap .roadmap-section__icon::before {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: var(--bg-color-700);
-    border: 3px solid var(--purpal);
-    border-radius: 50%;
-    left: -37px;
-    top: -13px;
-}
+                &::before {
+                    content: "";
+                    position: absolute;
+                    width: 20px;
+                    height: 20px;
+                    background: var(--bg-color-700);
+                    border: 3px solid var(--purpal);
+                    border-radius: 50%;
+                    left: -39px;
+                    top: -13px;
+                }
 
-.roadmap .roadmap-section__icon.active::before {
-    background: var(--purpal);
-}
+                &.current::after {
+                    content: "";
+                    position: absolute;
+                    border-radius: 50%;
+                    width: 8px;
+                    height: 8px;
+                    background: var(--purpal);
+                    animation: grow .7s alternate-reverse infinite;
+                    left: -0px;
+                    top: -0px;
+                }
 
-.roadmap .roadmap-section__icon.current::after {
-    content: "";
-    position: absolute;
-    border-radius: 50%;
-    width: 8px;
-    height: 8px;
-    background: var(--purpal);
-    animation: grow .7s alternate-reverse infinite;
-    left: -28px;
-    top: -1px;
+                &.done {
+                    &::before {
+                        background: var(--purpal);
+                    }
+
+                    & i {
+                        position: absolute;
+                        font-size: 31px;
+                        top: -18px;
+                        left: -40px;
+                        color: var(--bg-color-700);
+                    }
+                }
+            }
+
+            /*OPTIONS ------------------------------------------------------*/
+            & .options {
+                position: relative;
+                display: grid;
+                gap: 10px;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+                & .option-card {
+                    position: relative;
+                    background: var(--bg-color-400);
+                    padding: 5px 10px;
+                    border-radius: 5px;
+                    isolation: isolate;
+
+                    &::before {
+                        position: absolute;
+                        z-index: -1;
+                        content: "";
+                        inset: -10px;
+                        background: var(--bg-color-900);
+                    }
+
+                    &:first-child::before {
+                        border-bottom-left-radius: 7px;
+                        border-top-left-radius: 7px;
+                    }
+
+                    &:last-child::before {
+                        border-bottom-right-radius: 7px;
+                        border-top-right-radius: 7px;
+                    }
+
+                    &::after {
+                        position: absolute;
+                        z-index: -1;
+                        content: "";
+                        inset: 0;
+                        background: var(--bg-color-400);
+                        border-radius: 5px;
+                    }
+
+                    & .option-card__title {
+                        color: var(--purpal)
+                    }
+
+                    & .option-card__desc {
+                        font-size: 14px;
+                    }
+
+                }
+
+                /*ACTIONS ------------------------------------------------------*/
+                & .actions {
+                    margin-top: 15px;
+                    display: grid;
+                    gap: 10px;
+
+                    & .action {
+                        display: flex;
+                        justify-content: space-between;
+
+                        padding: 5px 7px;
+                        width: 100%;
+                        border: 1px solid #fff;
+                        border-radius: 5px;
+                        color: #fff;
+
+                        opacity: var(--card-disabled-opacity);
+                        cursor: not-allowed;
+
+                        &.current {
+                            cursor: pointer;
+                            opacity: 1;
+                            color: var(--yellow);
+                            border-color: var(--yellow);
+                        }
+
+                        &.done {
+                            cursor: pointer;
+                            opacity: 1;
+                            color: var(--green);
+                            border-color: var(--green);
+                        }
+
+                        & .action__title {
+                            text-transform: capitalize;
+                        }
+
+                        & .icons {
+                            display: flex;
+                            gap: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 @keyframes grow {
     from {
-        width: 4px;
-        height: 4px;
-        left: -26px;
-        top: 1px;
+        --from: 2px;
+        width: var(--from);
+        height: var(--from);
+        left: -27px;
+        top: -1px;
         opacity: .3;
     }
     97% {
         opacity: 0.7;
     }
     to {
-        width: 10px;
-        height: 10px;
-        left: -29px;
-        top: -2px;
+        --to: 12px;
+        width: var(--to);
+        height: var(--to);
+        left: -32px;
+        top: -6px;
         opacity: 0.8;
     }
-}
-
-.roadmap .roadmap-section__icon.active i {
-    position: absolute;
-    font-size: 31px;
-    top: -18px;
-    left: -40px;
-    color: var(--bg-color-700);
-}
-
-/*OPTIONS ------------------------------------------------------*/
-.roadmap .options {
-    position: relative;
-    /*width: fit-content;*/
-    display: grid;
-    gap: 10px;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-}
-
-.roadmap .option-card {
-    background: var(--bg-color-400);
-    padding: 5px 10px;
-    border-radius: 5px;
-    /*height: fit-content;*/
-    /*box-shadow: 0 0 7px var(--bg-color-900);*/
-    /*width: min(300px, 100%);*/
-    /*box-shadow: 0 0 5px 0 var(--bg-color-700);*/
-}
-
-.roadmap .option-card__title {
-    color: var(--purpal)
-}
-
-.roadmap .option-card__desc {
-    font-size: 14px;
-}
-
-/*ACTIONS ------------------------------------------------------*/
-.roadmap .actions {
-    margin-top: 15px;
-    display: grid;
-    gap: 10px;
-}
-
-.roadmap .action {
-    display: flex;
-    justify-content: space-between;
-
-    padding: 5px 7px;
-    width: 100%;
-    border: 1px solid #fff;
-    border-radius: 5px;
-    color: #fff;
-
-    opacity: var(--card-disabled-opacity);
-    cursor: not-allowed;
-}
-
-.roadmap .action.current {
-    cursor: pointer;
-    opacity: 1;
-    color: var(--yellow);
-    border-color: var(--yellow);
-}
-
-.roadmap .action.done {
-    cursor: pointer;
-    opacity: 1;
-    color: var(--green);
-    border-color: var(--green);
-}
-
-/*.roadmap .action:hover {
-    background: var(--bg-color-900);
-}*/
-
-.roadmap .action__title {
-    text-transform: capitalize;
-}
-
-.roadmap .icons {
-    display: flex;
-    gap: 10px;
 }

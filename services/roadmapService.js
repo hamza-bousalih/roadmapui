@@ -1,7 +1,9 @@
 import {ModuleService} from "@/services/service";
 
-export default class RoadmapService extends ModuleService {
+class RoadmapService extends ModuleService {
     constructor() {
         super("roadmap");
     }
 }
+
+export default new RoadmapService();
