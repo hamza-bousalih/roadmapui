@@ -65,8 +65,25 @@ function TextLeftIcon({className, onclick}) {
     return <i onClick={onclick} className={setIcon("text-left", className)}></i>
 }
 
-export {RoadmapIcon};
-export {CheckIcon, CheckCircleIcon};
-export {FullScreenIcon, FullScreenExitIcon};
-export {GoeAltIcon, GoeAltFillIcon};
-export {CodeSlashIcon, TerminalIcon, BookIcon, PencilSquareIcon, CheckSquareIcon, PenIcon, TvIcon, TextLeftIcon}
+function MusicNoteIcon({className, onclick}) {
+    return <i onClick={onclick} className={setIcon("music-note", className)}></i>
+}
+
+export {
+    RoadmapIcon,
+    CheckIcon,
+    CheckCircleIcon,
+    FullScreenIcon,
+    FullScreenExitIcon,
+    GoeAltIcon,
+    GoeAltFillIcon,
+    CodeSlashIcon,
+    TerminalIcon,
+    BookIcon,
+    PencilSquareIcon,
+    CheckSquareIcon,
+    PenIcon,
+    TvIcon,
+    TextLeftIcon,
+    MusicNoteIcon
+}

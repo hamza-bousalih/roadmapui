@@ -17,7 +17,7 @@ export default function RoadmapPage({params: {roadmapId}}) {
                 const data = await Service.RoadmapService.findById(roadmapId);
                 setRoadmap(data);
                 setLoading(false);
-                // console.log('Fetched Roadmap:', data);
+                console.log('Fetched Roadmap:', data);
             } catch (error) {
                 console.error('Error fetching roadmap:', error);
             }
