@@ -30,6 +30,7 @@
             margin-bottom: 10px;
             display: flex;
             width: 100%;
+            cursor: default;
 
             &.done {
                 opacity: var(--card-disabled-opacity);
@@ -43,6 +44,7 @@
             & .task__icon {
                 border: 1px solid var(--blue-300);
                 padding-inline: 8px;
+                cursor: pointer;
             }
 
             & .separator {
@@ -67,6 +69,7 @@
             & .task__title {
                 border: 1px solid var(--blue-300);
                 width: 100%;
+                cursor: pointer;
             }
         }
     }

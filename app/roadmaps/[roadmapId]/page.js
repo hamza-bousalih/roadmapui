@@ -5,6 +5,7 @@ import "@/styles/roadmap/roadmap-details.css"
 import RoadmapSection from "@/components/roadmap/timeline/RoadmapSection";
 import Service from "@/services"
 import {useEffect, useState} from "react";
+import Loader from "@/components/roadmap/laoder/Loader";
 
 export default function RoadmapPage({params: {roadmapId}}) {
 
@@ -27,7 +28,7 @@ export default function RoadmapPage({params: {roadmapId}}) {
     }, [roadmapId]);
 
     return <>
-        {loading && <h1>Loading</h1>}
+        {loading && <Loader/>}
         {(!loading && roadmap) && <div className="roadmap">
             <div className="aside"></div>
             <main>
