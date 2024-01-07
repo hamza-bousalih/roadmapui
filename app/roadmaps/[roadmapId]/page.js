@@ -1,6 +1,6 @@
 "use client"
 
-import {RoadmapIcon} from "@/components/icons"
+import {RoadmapIcon} from "@/components/utils/icons"
 import "@/styles/roadmap/roadmap-details.css"
 import RoadmapSection from "@/components/roadmap/timeline/RoadmapSection";
 import Service from "@/services"
