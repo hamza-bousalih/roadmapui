@@ -168,7 +168,11 @@
                         color: #fff;
 
                         opacity: var(--card-disabled-opacity);
-                        cursor: not-allowed;
+                        /*cursor: not-allowed;*/
+
+                        &:hover {
+                            opacity: var(--paragraph);
+                        }
 
                         &.current {
                             cursor: pointer;

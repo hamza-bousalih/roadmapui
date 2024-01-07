@@ -1,6 +1,6 @@
 import Fetch from "@/services/FetchConfig";
 
-class Service extends Fetch{
+class Service extends Fetch {
     constructor(baseApi) {
         super(baseApi);
     }
