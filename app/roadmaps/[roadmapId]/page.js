@@ -2,7 +2,7 @@
 
 import {RoadmapIcon} from "@/components/utils/icons"
 import "@/styles/roadmap/roadmap-details.css"
-import RoadmapSection from "@/components/roadmap/timeline/RoadmapSection";
+import RoadmapSection from "@/components/roadmap/timeline/roadmap-section/RoadmapSection";
 import Service from "@/services"
 import {useEffect, useState} from "react";
 import Loader from "@/components/roadmap/laoder/Loader";

@@ -69,6 +69,18 @@ function MusicNoteIcon({className, onclick}) {
     return <i onClick={onclick} className={setIcon("music-note", className)}></i>
 }
 
+function DeleteIcon({className, onclick}) {
+    return <i onClick={onclick} className={setIcon("clipboard2-x", className)}></i>
+}
+
+function RemoveIcon({className, onclick}) {
+    return <i onClick={onclick} className={setIcon("clipboard-minus", className)}></i>
+}
+
+function AddIcon({className, onclick}) {
+    return <i onClick={onclick} className={setIcon("clipboard-plus", className)}></i>
+}
+
 export {
     RoadmapIcon,
     CheckIcon,
@@ -85,5 +97,8 @@ export {
     PenIcon,
     TvIcon,
     TextLeftIcon,
-    MusicNoteIcon
+    MusicNoteIcon,
+    DeleteIcon,
+    RemoveIcon,
+    AddIcon
 }

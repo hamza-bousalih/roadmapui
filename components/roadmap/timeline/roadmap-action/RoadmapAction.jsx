@@ -2,8 +2,9 @@
 
 import {CheckCircleIcon, FullScreenIcon} from "@/components/utils/icons";
 import {useState} from "react";
-import {Dekko} from "next/dist/compiled/@next/font/dist/google";
 import ActionDetails from "@/components/roadmap/timeline/action-details/ActionDetails";
+
+import "./roadmap-action.css"
 
 export default function RoadmapAction({data}) {
     const [showTasks, setShowTasks] = useState(false)

@@ -1,4 +1,6 @@
-import RoadmapAction from "@/components/roadmap/timeline/RoadmapAction";
+import RoadmapAction from "@/components/roadmap/timeline/roadmap-action/RoadmapAction";
+
+import "./roadmap-option.css"
 
 export default function RoadmapOption({data}) {
     return <>
