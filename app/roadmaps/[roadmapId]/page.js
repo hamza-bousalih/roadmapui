@@ -1,14 +1,12 @@
 "use client"
 
-import {RoadmapIcon} from "@/components/utils/icons"
 import "@/styles/roadmap/roadmap-details.css"
-import RoadmapSection from "@/components/roadmap/timeline/roadmap-section/RoadmapSection";
 import Service from "@/services"
 import {useEffect, useState} from "react";
 import Loader from "@/components/roadmap/laoder/Loader";
+import RoadmapDetails from "@/components/roadmap/timeline/roadmap-details/RoadmapDetails";
 
 export default function RoadmapPage({params: {roadmapId}}) {
-
     const [roadmap, setRoadmap] = useState({});
     const [loading, setLoading] = useState(true);
 
@@ -29,17 +27,6 @@ export default function RoadmapPage({params: {roadmapId}}) {
 
     return <>
         {loading && <Loader/>}
-        {(!loading && roadmap) && <div className="roadmap">
-            <div className="aside"></div>
-            <main>
-                <section className="roadmap__detail">
-                    <RoadmapIcon className="roadmap__icon"/>
-                    <h2 className="roadmap__title">{roadmap.title}</h2>
-                    <p className="roadmap__desc">{roadmap.description}</p>
-                </section>
-
-                {roadmap.start && <RoadmapSection data={roadmap.start}/>}
-            </main>
-        </div>}
+        {(!loading && roadmap) && <RoadmapDetails roadmap={roadmap}/>}
     </>
 }

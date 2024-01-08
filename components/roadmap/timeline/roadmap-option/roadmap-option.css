@@ -45,4 +45,18 @@
         display: grid;
         gap: 10px;
     }
+
+    &.disable {
+        & * {
+            cursor: default !important;
+        }
+
+        & > *, &::after, & .actions {
+            opacity: var(--card-disabled-opacity);
+        }
+
+        & .actions > * {
+            opacity: var(--paragraph);
+        }
+    }
 }
